@@ -16,7 +16,7 @@ class BasicsValidator implements BasicsValidatorInterface
     public function isMinutesException(int $minute): void
     {
         if(!($minute > 0 && $minute < 59))
-            throw new InvalidArgumentException('getMinuteQuarter function only accepts integers between 0 to 59. Input was: '.$minute.'.');
+            throw new InvalidArgumentException("getMinuteQuarter function only accepts integers between 0 to 59. Input was: {$minute}.");
     }
 
     /**
@@ -28,7 +28,7 @@ class BasicsValidator implements BasicsValidatorInterface
     public function isYearException(int $year): void
     {
         if($year < 1900)
-            throw new InvalidArgumentException($year.' is less than 1900.');
+            throw new InvalidArgumentException("{$year} is less than 1900.");
     }
 
     /**
@@ -40,6 +40,6 @@ class BasicsValidator implements BasicsValidatorInterface
     public function isValidStringException(string $input): void
     {
         if(!strlen($input) == 6)
-            throw new InvalidArgumentException($input.' is less or bigger than 6.');
+            throw new InvalidArgumentException("{$input} is less or bigger than 6.");
     }
 }
