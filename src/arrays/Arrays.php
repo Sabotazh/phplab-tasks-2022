@@ -18,10 +18,11 @@ class Arrays implements ArraysInterface
     {
         $data = [];
         foreach ($input as $value) {
-            if (is_numeric($value))
+            if (is_numeric($value)) {
                 for ($i = 0; $i < $value; $i++) {
                     $data[] = $value;
                 }
+            }
         }
 
         return $data;
@@ -39,11 +40,12 @@ class Arrays implements ArraysInterface
     {
         $uniqueNumbers = [];
         foreach (array_count_values($input) as $key => $value) {
-            if ($value == 1)
+            if ($value == 1) {
                 $uniqueNumbers[] = $key;
+            }
         }
 
-        return min($uniqueNumbers);
+        return empty($uniqueNumbers) ? 0 : min($uniqueNumbers);
     }
 
     /**
