@@ -26,7 +26,7 @@ class Basics implements BasicsInterface
     {
         $this->validator->isMinutesException($minute);
 
-        $print = "It's like you're living in an extraterrestrial time";
+        $print = "";
 
         if ($minute > 0 && $minute <= 15) {
             $print = "first";
