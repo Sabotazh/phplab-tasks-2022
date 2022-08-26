@@ -1,9 +1,10 @@
 <?php
 
-use functions\Functions;
+namespace functions;
+
 use PHPUnit\Framework\TestCase;
 
-class SayHelloArgumentWrapperTest extends TestCase
+class CountArgumentsWrapperTest extends TestCase
 {
     protected Functions $functions;
 
@@ -17,9 +18,9 @@ class SayHelloArgumentWrapperTest extends TestCase
      */
     public function testArgument($argument)
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("An argument is not a number, string, or boolean.");
-        $this->functions->sayHelloArgumentWrapper($argument);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Some argument is not a string.");
+        $this->functions->countArgumentsWrapper($argument);
     }
 
     public function argumentDataProvider(): array
@@ -27,6 +28,7 @@ class SayHelloArgumentWrapperTest extends TestCase
         return [
             'floating point number' => [2.8],
             'function' => [func_num_args()],
+            'integer' => [28],
             'NULL' => [null]
         ];
     }

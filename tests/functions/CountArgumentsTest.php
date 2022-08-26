@@ -1,6 +1,7 @@
 <?php
 
-use functions\Functions;
+namespace functions;
+
 use PHPUnit\Framework\TestCase;
 
 class CountArgumentsTest extends TestCase
@@ -25,7 +26,7 @@ class CountArgumentsTest extends TestCase
         return [
             [['argument_count' => 0, 'argument_values' => []], []],
             [['argument_count' => 1, 'argument_values' => ['value']], ['value']],
-            [['argument_count' => 2, 'argument_values' => ['value1', 'value2']], ['value1','value2']]
+            [['argument_count' => 2, 'argument_values' => ['value1', 'value2']], ['value1', 'value2']]
         ];
     }
 }

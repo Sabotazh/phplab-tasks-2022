@@ -1,9 +1,10 @@
 <?php
 
-use functions\Functions;
+namespace functions;
+
 use PHPUnit\Framework\TestCase;
 
-class SayHelloTest extends TestCase
+class SayHelloArgumentTest extends TestCase
 {
     protected Functions $functions;
 
@@ -17,16 +18,15 @@ class SayHelloTest extends TestCase
      */
     public function testPositive($input, $expected)
     {
-        $this->assertEquals($expected, $this->functions->sayHello());
+        $this->assertEquals('Hello ' . $expected, $this->functions->sayHelloArgument($input));
     }
 
-    /**
-     * @return array
-     */
     public function positiveDataProvider(): array
     {
         return [
-            ['', 'Hello']
+            [28, "28"],
+            ["John", "John"],
+            [true, "1"]
         ];
     }
 }
